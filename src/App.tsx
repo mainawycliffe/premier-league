@@ -3,7 +3,7 @@ import './App.css';
 import { useState } from 'react';
 import PremierLeagueTable from './components/PremierLeagueTable';
 import { Route, Routes } from 'react-router-dom';
-import PremierLeagueFixtures from './components/PremierLeagureFixtures';
+import PremierLeagueFixtures from './components/PremierLeagueFixtures';
 
 function App() {
   const [premierLeagueData] = useState(data);
@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path='/'>
             <Route index element={<PremierLeagueTable data={premierLeagueData} />} />
-            <Route path='/fixtures' element={<PremierLeagueFixtures data={premierLeagueData} />} />
+            <Route path='/fixtures/:teamSlug' element={<PremierLeagueFixtures data={premierLeagueData} />} />
           </Route>
         </Routes>
       </div>
