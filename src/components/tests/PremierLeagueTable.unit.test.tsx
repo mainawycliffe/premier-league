@@ -1,9 +1,16 @@
 import { render, screen } from '@testing-library/react';
+import { MemoryRouter, Route, Routes } from 'react-router';
 import PremierLeagueTable from '../PremierLeagueTable';
 import { testDataFutureAndPast, testDataFutureOnly } from './mocks/mockData';
 
 test('renders results when there are past premier league matches', () => {
-  render(<PremierLeagueTable data={testDataFutureAndPast} />);
+  render(
+    <MemoryRouter initialEntries={['/']}>
+      <Routes>
+        <Route path='/' element={<PremierLeagueTable data={testDataFutureAndPast} />} />
+      </Routes>
+    </MemoryRouter>,
+  );
 
   // eslint-disable-next-line testing-library/prefer-presence-queries
   expect(screen.getByRole('heading', { name: /Premier League Table/i })).toBeInTheDocument();
@@ -26,7 +33,13 @@ test('renders results when there are past premier league matches', () => {
 });
 
 test('renders no results when there are no past premier league matches', () => {
-  render(<PremierLeagueTable data={testDataFutureOnly} />);
+  render(
+    <MemoryRouter initialEntries={['/']}>
+      <Routes>
+        <Route path='/' element={<PremierLeagueTable data={testDataFutureOnly} />} />
+      </Routes>
+    </MemoryRouter>,
+  );
 
   expect(screen.getByRole('heading', { name: /Premier League Table/i })).toBeInTheDocument();
 
@@ -36,7 +49,13 @@ test('renders no results when there are no past premier league matches', () => {
 });
 
 test('renders no results when there are no fixtures', () => {
-  render(<PremierLeagueTable data={[]} />);
+  render(
+    <MemoryRouter initialEntries={['/']}>
+      <Routes>
+        <Route path='/' element={<PremierLeagueTable data={[]} />} />
+      </Routes>
+    </MemoryRouter>,
+  );
 
   expect(screen.getByRole('heading', { name: /Premier League Table/i })).toBeInTheDocument();
 
