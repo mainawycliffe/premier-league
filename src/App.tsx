@@ -1,9 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
+import { data } from './data';
 import './App.css';
+import { useState } from 'react';
+import PremierLeagueTable from './components/PremierLeagueTable';
 
 function App() {
-  return <h1 className='text-3xl font-bold underline'>Hello world!</h1>;
+  const [premierLeagueData] = useState(data);
+
+  return (
+    <div className='container mx-auto py-10'>
+      <div className='flex flex-col'>
+        <PremierLeagueTable data={premierLeagueData} />
+      </div>
+    </div>
+  );
 }
 
 export default App;
