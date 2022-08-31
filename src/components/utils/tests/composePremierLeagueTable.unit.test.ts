@@ -18,7 +18,7 @@ test('if given data with past fixtures, return table with past fixtures', () => 
   expect(res).toStrictEqual([
     {
       gamesPlayed: 4,
-      goalDifference: 0,
+      goalDifference: -8,
       goalsAgainst: 8,
       goalsFor: 0,
       points: 10,
@@ -29,7 +29,7 @@ test('if given data with past fixtures, return table with past fixtures', () => 
     },
     {
       gamesPlayed: 3,
-      goalDifference: 0,
+      goalDifference: -8,
       goalsAgainst: 8,
       goalsFor: 0,
       points: 9,
@@ -40,7 +40,7 @@ test('if given data with past fixtures, return table with past fixtures', () => 
     },
     {
       gamesPlayed: 5,
-      goalDifference: 0,
+      goalDifference: 11,
       goalsAgainst: 0,
       goalsFor: 11,
       points: 5,
@@ -62,7 +62,7 @@ test('if given data with past fixtures, return table with past fixtures', () => 
     },
     {
       gamesPlayed: 3,
-      goalDifference: 0,
+      goalDifference: -3,
       goalsAgainst: 3,
       goalsFor: 0,
       points: 3,
@@ -73,7 +73,7 @@ test('if given data with past fixtures, return table with past fixtures', () => 
     },
     {
       gamesPlayed: 5,
-      goalDifference: 0,
+      goalDifference: 1,
       goalsAgainst: 2,
       goalsFor: 3,
       points: 3,
@@ -84,7 +84,7 @@ test('if given data with past fixtures, return table with past fixtures', () => 
     },
     {
       gamesPlayed: 4,
-      goalDifference: 0,
+      goalDifference: 1,
       goalsAgainst: 2,
       goalsFor: 3,
       points: 2,

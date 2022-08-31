@@ -78,5 +78,10 @@ export default function composePremierLeagueTable(data: PremierLeagueFixture[], 
   });
 
   const premierLeagueTable = Object.entries(premierLeagueTableWithKeys).map(([_, team]) => team);
-  return premierLeagueTable.sort((a, b) => b.points - a.points);
+  return premierLeagueTable
+    .sort((a, b) => b.points - a.points)
+    .map((team) => ({
+      ...team,
+      goalDifference: team.goalsFor - team.goalsAgainst,
+    }));
 }
