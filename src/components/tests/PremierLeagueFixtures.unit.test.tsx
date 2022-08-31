@@ -30,6 +30,8 @@ test('should show fixtures for leicester', async () => {
   expect(screen.getByTestId('results-0-home-team').innerHTML).toBe(`Manchester City`);
   expect(screen.getByTestId('results-0-score').innerHTML).toBe(`1 - 2`);
   expect(screen.getByTestId('results-0-away-team').innerHTML).toBe(`Leicester City`);
+
+  expect(screen.getByRole('button', { name: /Back to Table/ })).toHaveAttribute('href', '/');
 });
 
 test('should show fixtures for arsenal', async () => {
@@ -59,4 +61,6 @@ test('should show fixtures for arsenal', async () => {
   expect(screen.getByTestId('results-0-home-team').innerHTML).toBe(`Manchester United`);
   expect(screen.getByTestId('results-0-score').innerHTML).toBe(`6 - 2`);
   expect(screen.getByTestId('results-0-away-team').innerHTML).toBe(`Arsenal`);
+
+  expect(screen.getByRole('button', { name: /Back to Table/ })).toHaveAttribute('href', '/');
 });

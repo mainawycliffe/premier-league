@@ -1,6 +1,6 @@
 import { parseISO, format } from 'date-fns';
 import { useMemo } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import slugify from 'slugify';
 import PremierLeagueFixture from '../types/PremierLeagueFixture';
 import composeTeamsFixtures from './utils/composeTeamsFixtures';
@@ -21,6 +21,9 @@ export default function PremierLeagueFixtures({ data }: Props) {
     <>
       <div className='flex flex-col space-y-4'>
         <h3 className='block font-bold tracking-wide text-5xl'>Fixtures and Results for {teamsName}</h3>
+        <Link className='text-lg text-blue-400 font-semibold' to='/' role='button'>
+          {'<'} Back to Table
+        </Link>
         {future.length > 0 && (
           <div className='flex flex-col py-4 space-y-6'>
             <h3 className='text-3xl font-bold'>Upcoming Fixtures</h3>
