@@ -2,6 +2,8 @@ import { useMemo } from 'react';
 import PremierLeagueFixture from '../types/PremierLeagueFixture';
 import { parseISO } from 'date-fns';
 import composePremierLeagueTable from './utils/composePremierLeagueTable';
+import { Link } from 'react-router-dom';
+import slugify from 'slugify';
 
 type Props = {
   data: PremierLeagueFixture[];
@@ -37,7 +39,15 @@ export default function PremierLeagueTable({ data }: Props) {
             <tbody className='text-center'>
               {filteredData.map((team) => (
                 <tr className='table-row hover:bg-gray-200' key={team.team}>
-                  <td className='text-left p-4 font-semibold'>{team.team}</td>
+                  <td className='text-left p-4 font-semibold'>
+                    <Link
+                      className='hover:underline'
+                      to={{
+                        pathname: `/fixtures/${slugify(team.team, { lower: true })}`,
+                      }}>
+                      {team.team}
+                    </Link>
+                  </td>
                   <td data-testid={`${team.team}-played`} className='p-4'>
                     {team.gamesPlayed}
                   </td>
