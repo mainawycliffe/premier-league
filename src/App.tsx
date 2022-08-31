@@ -2,6 +2,8 @@ import { data } from './data';
 import './App.css';
 import { useState } from 'react';
 import PremierLeagueTable from './components/PremierLeagueTable';
+import { Route, Routes } from 'react-router-dom';
+import PremierLeagueFixtures from './components/PremierLeagureFixtures';
 
 function App() {
   const [premierLeagueData] = useState(data);
@@ -9,7 +11,12 @@ function App() {
   return (
     <div className='container mx-auto py-10'>
       <div className='flex flex-col'>
-        <PremierLeagueTable data={premierLeagueData} />
+        <Routes>
+          <Route path='/'>
+            <Route index element={<PremierLeagueTable data={premierLeagueData} />} />
+            <Route path='/fixtures' element={<PremierLeagueFixtures data={premierLeagueData} />} />
+          </Route>
+        </Routes>
       </div>
     </div>
   );
